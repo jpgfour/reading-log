@@ -2,14 +2,15 @@
 project for LC liftoff 2020
 
 ### Overview
-For my LaunchCode Liftioff 2020 Project, I want to create a reading log.  I want it to be simple enough to be used 
-by kids for summer reading but also with enough features that adults could enjoy using it, too. 
-I would like to have accounts for individual users.  I plan to query available JSON data or an API (
+For my LaunchCode Liftoff 2020 Project, I plan to create a reading log.  I intend it to be simple enough to be used 
+by kids for summer reading but have enough features that adults could enjoy using it, too. 
+I plan to have accounts for individual users.  I plan to query available JSON data or an API (
 like https://developers.google.com/books/docs/v1/getting_started) so users 
 can search for a book and then select the picture of the book cover that matches exactly what version
-of the book they are reading.  Users can log progress by either time or pagecount, or both.  
-pulling from JSON/API will allow the app 
-to display selected info about the book in addition to just the title.  stretch goal(s) would be to allow parents 
+of the book they are reading.  Users can log reading progress by time, pagecount, or both.  
+Pulling from JSON/API will allow the app 
+to display selected info about the book in addition to just the title.  
+Stretch goal(s) will be to allow parents 
 to set up accounts for and monitor kids use of the app, and award "prizes" or points based on 
 reading goals including pages, minutes, book difficulty, etc.  possibly allow friends/parents to 
 assign or suggest books to other users.  I got the idea from using both paper and online reading logs.
