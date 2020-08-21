@@ -24,7 +24,7 @@ Logging: Users will be able to log their reading activity.  Activity can be logg
 hours, or pages, or both.
 Comments: Users will be able to log comments on the books they've read.
 ### Technologies
-Unless I learn differently, I'd like to emulate the tech we were using at the end of LC101 unit 2.
+I currently plan to emulate the tech we were using at the end of LC101 unit 2.
 Specifically:
 Java
 Spring Boot
