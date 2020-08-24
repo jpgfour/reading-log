@@ -1,6 +1,7 @@
-package org.launchcode.readinglog.models;
+package org.launchcode.readinglog;
 
 import org.launchcode.readinglog.controllers.AuthenticationController;
+import org.launchcode.readinglog.models.User;
 import org.launchcode.readinglog.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -53,5 +54,6 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
         // The user is NOT logged in
         response.sendRedirect("/login");
         return false;
+    }
 
 }

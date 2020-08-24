@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.util.Objects;
 
-@MappedSuperClass
+@MappedSuperclass
 public class AbstractEntity {
 
     @Id

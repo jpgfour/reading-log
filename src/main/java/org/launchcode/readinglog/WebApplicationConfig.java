@@ -1,4 +1,4 @@
-package org.launchcode.readinglog.models;
+package org.launchcode.readinglog;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
