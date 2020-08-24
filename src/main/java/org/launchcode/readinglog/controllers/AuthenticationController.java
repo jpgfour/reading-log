@@ -1,5 +1,9 @@
 package org.launchcode.readinglog.controllers;
 
+import org.launchcode.readinglog.models.User;
+import org.launchcode.readinglog.models.data.UserRepository;
+import org.launchcode.readinglog.models.dto.LoginFormDTO;
+import org.launchcode.readinglog.models.dto.RegisterFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
