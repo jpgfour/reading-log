@@ -9,14 +9,14 @@ public class HelloController {
 
 //    @Autowired
 //    AuthenticationController authenticationController;
-//    HttpServletRequest request;
+    //HttpServletRequest request;
 //    HttpSession session = request.getSession();
 //    User user = authenticationController.getUserFromSession(session);
 
     @RequestMapping(value = "")
     @ResponseBody
     public String index() {
-        //return "Hello" + user.getUsername() + ".  Welcome to the plaintext reading log.  More features coming soon.";
+        //return "Hello" + request.getRemoteUser() + ".  Welcome to the plaintext reading log.  More features coming soon.";
         return "Hello" + " World" + ".  Welcome to the plaintext reading log.  More features coming soon.";
     }
 
