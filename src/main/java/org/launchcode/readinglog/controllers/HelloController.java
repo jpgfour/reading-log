@@ -24,7 +24,7 @@ public class HelloController {
 
         //System.out.println(user.getUsername());
         HttpSession currentSession = (HttpSession) RequestContextHolder.currentRequestAttributes().getSessionMutex();
-        String sessionID = RequestContextHolder.currentRequestAttributes().getSessionId();
+        //String sessionID = RequestContextHolder.currentRequestAttributes().getSessionId();
         final User currentUser = authenticationController.getUserFromSession(currentSession);
 
 
@@ -37,5 +37,11 @@ public class HelloController {
     public String goodbye() {
         return "Goodbye.  Come back soon.";
     }
+
+    @RequestMapping(value = "harry")
+    public String harry() { return "harryPotterExample"; }
+
+    @RequestMapping(value = "mbs")
+    public String mbs() { return "searchExample"; }
 
 }
