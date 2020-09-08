@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head>
-    <title>MBS API Example</title>
+    <title>*****TESTING API CALL*****</title>
 </head>
 <body>
 <div id="content"></div>
@@ -18,9 +18,20 @@
         var search=/*[[${searchTerm}]]*/;
         alert("here's the search term: " + search);
 </script>
-<script type="text/javascript" th:src=@{/static/js/searchTerm.js}"></script>
-<script th:inline="javascript";
-        var search=/*[[${searchTerm}]]*/;
-        src="returnURL(search)"></script>
+
+<script th:inline="javascript">
+
+    var search=/*[[${searchTerm}]]*/;
+    alert("here's the search term: " + search);
+
+    var url="https://www.googleapis.com/books/v1/volumes?q=" + search + "&callback=handleResponse"
+    alert("here's the search url: " + url);
+
+    var JSElement = document.createElement('script');
+    JSElement.src = url;
+    document.getElementsByTagName('head')[0].appendChild(JSElement);
+
+</script>
+
 </body>
 </html>
