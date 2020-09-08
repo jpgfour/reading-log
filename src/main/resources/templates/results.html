@@ -7,12 +7,9 @@
 <div id="content"></div>
 <script>
 
-      function show_thumb(src, width, height, alt) {
+    function show_thumb(src) {
         var img = document.createElement("img");
         img.src = src;
-        img.width = width;
-        img.height = height;
-        img.alt = alt;
 
         document.body.appendChild(img);
     }
@@ -22,7 +19,7 @@
         var item = response.items[i];
         // in production code, item.text should have the HTML entities escaped.
         document.getElementById("content").innerHTML += "<br>" + item.volumeInfo.title + "   " + item.volumeInfo.authors + "   "
-        + show_thumb(item.volumeInfo.imageLinks.thumbnail, 276, 110, 'alt text here');
+        + show_thumb(item.volumeInfo.imageLinks.thumbnail);
       }
     }
     </script>
