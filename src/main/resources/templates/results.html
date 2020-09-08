@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org/">
 <head>
     <title>MBS API Example</title>
 </head>
@@ -14,9 +14,13 @@
       }
     }
     </script>
-<script
-        var url="https://www.googleapis.com/books/v1/volumes?q="
-        var search=${searchTerm}
-        src="https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&callback=handleResponse"></script>
+<script th:inline="javascript">
+        var search=/*[[${searchTerm}]]*/;
+        alert("here's the search term: " + search);
+</script>
+<script type="text/javascript" th:src=@{/static/js/searchTerm.js}"></script>
+<script th:inline="javascript";
+        var search=/*[[${searchTerm}]]*/;
+        src="returnURL(search)"></script>
 </body>
 </html>
