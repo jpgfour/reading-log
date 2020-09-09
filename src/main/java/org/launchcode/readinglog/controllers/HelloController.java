@@ -38,9 +38,11 @@ public class HelloController {
         return "Goodbye.  Come back soon.";
     }
 
+    //demo purposes
     @RequestMapping(value = "harry")
     public String harry() { return "harryPotterExample"; }
 
+    //demo purposes
     @RequestMapping(value = "mbs")
     public String mbs() { return "searchExample"; }
 

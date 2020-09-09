@@ -6,31 +6,38 @@
 <body>
 <div id="content"></div>
 <script>
-
-    function show_thumb(src) {
+    function showThumb(src) {
         var img = document.createElement("img");
         img.src = src;
-
         document.body.appendChild(img);
-<!--        document.activeElement.appendChild(img);-->
     }
 
       function handleResponse(response) {
       for (var i = 0; i < response.items.length; i++) {
         var item = response.items[i];
         // in production code, item.text should have the HTML entities escaped.
-        document.getElementById("content").innerHTML += "<br>" + item.volumeInfo.title + "   " + item.volumeInfo.authors + "   "
-        + show_thumb(item.volumeInfo.imageLinks.thumbnail);
+
+        var paragraph = document.createElement("P");
+        paragraph.id = item.id;
+        document.body.appendChild(paragraph);
+
+        document.getElementById(item.id).innerHTML += "<br>" + item.volumeInfo.title + "   " + item.volumeInfo.authors + "   "
+        + showThumb(item.volumeInfo.imageLinks.thumbnail);
+
+        var chkbox = document.createElement("INPUT");
+        chkbox.setAttribute("type", "checkbox");
+        chkbox.name = "chk" + item.id;
+        document.body.appendChild(chkbox);
       }
     }
-    </script>
+</script>
+
 <script th:inline="javascript">
         var search=/*[[${searchTerm}]]*/;
         alert("here's the search term: " + search);
 </script>
 
 <script th:inline="javascript">
-
     var search=/*[[${searchTerm}]]*/;
     alert("here's the search term: " + search);
 
@@ -40,8 +47,13 @@
     var JSElement = document.createElement('script');
     JSElement.src = url;
     document.getElementsByTagName('head')[0].appendChild(JSElement);
-
 </script>
+<!--TODO: add "search again?" button/field-->
+<!--TODO: add submit button which notes checked box and sends it to either-->
+<!--TODO: more in-depth view-->
+<!--TODO: or -->
+<!--TODO: log screen (MVP)-->
+<!--TODO: investigate switching to RADIO button-->
 
 </body>
 </html>
