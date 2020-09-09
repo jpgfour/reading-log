@@ -28,6 +28,13 @@
         chkbox.setAttribute("type", "checkbox");
         chkbox.name = "chk" + item.id;
         document.body.appendChild(chkbox);
+
+        var radio = document.createElement("INPUT");
+        radio.setAttribute("type", "radio");
+        radio.name = "radio";
+        document.body.appendChild(radio);
+
+
       }
     }
 </script>
@@ -54,6 +61,7 @@
 <!--TODO: or -->
 <!--TODO: log screen (MVP)-->
 <!--TODO: investigate switching to RADIO button-->
+<!--TODO: name paragraphs so can reference?-->
 
 </body>
 </html>
