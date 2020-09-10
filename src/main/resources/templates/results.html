@@ -39,9 +39,20 @@
         document.body.appendChild(radio);
 
         var submitButton = document.createElement("BUTTON");
-        submitButton.id = "submit" + item.id;
+        submitButton.id = item.id;
         submitButton.innerText = "Select " + item.volumeInfo.title;
-        submitButton.addEventListener("click", function(click_id){alert("you clicked button # " + this.id);});
+        submitButton.addEventListener("click",
+            function(click_id) {
+            alert("you clicked button # " + this.id);
+            var url2="https://www.googleapis.com/books/v1/volumes/" + this.id;
+            alert("here's the search url: " + url2);
+<!--TODO: straighten out below or refactor it-->
+<!--            var JSElement2 = document.createElement('script');-->
+<!--            JSElement2.src = url2;-->
+<!--            window.createPopup().focus();-->
+<!--            document.getElementsByTagName('head')[0].appendChild(JSElement2);-->
+            }
+            );
         document.body.appendChild(submitButton);
 
         } <!--end JSON response iteration loop-->
