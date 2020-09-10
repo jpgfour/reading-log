@@ -34,7 +34,7 @@
         radio.name = "volumeSelect";
         radio.id = "radio" + item.id
         radio.value = "radio" + item.id;
-        //default to first radio button always being checked
+<!--        default to first radio button always being checked-->
         if (i==0) {radio.checked = true;}
         document.body.appendChild(radio);
 
@@ -45,12 +45,13 @@
             function(click_id) {
             alert("you clicked button # " + this.id);
             var url2="https://www.googleapis.com/books/v1/volumes/" + this.id;
-            alert("here's the search url: " + url2);
+<!--            var url2="/logs/add.html";-->
+            alert("here's the selected book's data url: " + url2);
 <!--TODO: straighten out below or refactor it-->
-<!--            var JSElement2 = document.createElement('script');-->
-<!--            JSElement2.src = url2;-->
-<!--            window.createPopup().focus();-->
-<!--            document.getElementsByTagName('head')[0].appendChild(JSElement2);-->
+<!--currently opens a Window with all JSON data for selected book-->
+<!--make it go to /log?-->
+            var selectionWindow = window.open(url2, "Log Window");
+
             }
             );
         document.body.appendChild(submitButton);
