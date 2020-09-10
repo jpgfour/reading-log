@@ -21,18 +21,23 @@
         paragraph.id = item.id;
         document.body.appendChild(paragraph);
 
-        document.getElementById(item.id).innerHTML += "<br>" + item.volumeInfo.title + "   " + item.volumeInfo.authors + "   "
-        + showThumb(item.volumeInfo.imageLinks.thumbnail);
+        document.getElementById(item.id).innerHTML += "<br>" + item.volumeInfo.title + "   " + item.volumeInfo.authors + showThumb(item.volumeInfo.imageLinks.thumbnail);
 
-        var chkbox = document.createElement("INPUT");
-        chkbox.setAttribute("type", "checkbox");
-        chkbox.name = "chk" + item.id;
-        document.body.appendChild(chkbox);
+<!--        var chkbox = document.createElement("INPUT");-->
+<!--        chkbox.setAttribute("type", "checkbox");-->
+<!--        chkbox.name = "chk" + item.id;-->
+<!--        document.body.appendChild(chkbox);-->
 
         var radio = document.createElement("INPUT");
         radio.setAttribute("type", "radio");
-        radio.name = "radio";
+        radio.name = "volumeSelect";
+        radio.id = "radio" + item.id
+        radio.value = "radio" + item.id;
+        //default to first radio button always being checked
+        if (i==0) {radio.checked = true;}
         document.body.appendChild(radio);
+
+
 
 
       }

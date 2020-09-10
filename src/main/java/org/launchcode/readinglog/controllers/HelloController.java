@@ -28,8 +28,9 @@ public class HelloController {
         final User currentUser = authenticationController.getUserFromSession(currentSession);
 
 
-        return "Hello " + currentUser.getUsername() + "!  Welcome to the plaintext reading log.  More features coming soon.";
-        //return "Hello" + " World" + ".  Welcome to the plaintext reading log.  More features coming soon.";
+        return "Hello  <b>" + currentUser.getUsername() + "!</b>  Welcome to the plaintext reading log.  More features coming soon."
+                + "<br><br>" + "<a href=/search>Search for a book</a>" ;
+        //return "Hello" + " World" + ".  Welcome to the slightly-spiffier-than-plaintext reading log.  More features coming soon.";
     }
 
     @RequestMapping(value = "goodbye")
