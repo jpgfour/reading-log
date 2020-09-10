@@ -37,11 +37,14 @@
         if (i==0) {radio.checked = true;}
         document.body.appendChild(radio);
 
+        var submitButton = document.createElement("BUTTON");
+        submitButton.id = "submit" + item.id;
+        submitButton.innerText = "Select " + item.volumeInfo.title;
+        submitButton.addEventListener("click", function(click_id){alert("you clicked button # " + this.id);});
+        document.body.appendChild(submitButton);
 
-
-
-      }
-    }
+        }
+    } <!--end function HandleResponse-->
 </script>
 
 <script th:inline="javascript">
