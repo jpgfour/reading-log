@@ -45,12 +45,9 @@
             function(click_id) {
             alert("you clicked button # " + this.id);
             var url2="https://www.googleapis.com/books/v1/volumes/" + this.id;
-<!--            var url2="/logs/add.html";-->
+            var url3="/logs/add/" + this.id;
             alert("here's the selected book's data url: " + url2);
-<!--TODO: straighten out below or refactor it-->
-<!--currently opens a Window with all JSON data for selected book-->
-<!--make it go to /log?-->
-            var selectionWindow = window.open(url2, "Log Window");
+            window.location.assign(url3);
 
             }
             );
@@ -69,7 +66,7 @@
     var search=/*[[${searchTerm}]]*/;
     alert("here's the search term: " + search);
 
-    var url="https://www.googleapis.com/books/v1/volumes?q=" + search + "&callback=handleResponse"
+    var url="https://www.googleapis.com/books/v1/volumes?q=" + search + "&maxResults=20&callback=handleResponse"
     alert("here's the search url: " + url);
 
     var JSElement = document.createElement('script');

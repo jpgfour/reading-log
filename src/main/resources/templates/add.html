@@ -10,5 +10,30 @@
 <h2>UNDER CONSTRUCTION</h2>
 
 
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label>Log Your Time in Minutes And/Or Pages Read for Volume </label>
+        <text th:text="${volumeId}"></text>
+    </div>
+
+    <div class="form-group">
+        <label>Minutes Logged</label>
+        <input type="text" name="minutesLogged" value="Enter Minutes Here">
+    </div>
+
+    <div class="form-group">
+        <label>Pages Logged</label>
+        <th:block>
+            <input type="text" name="pagesLogged" value="Enter Pages Here">
+        </th:block>
+<!--        <a th:href="@{'/skills/add'}">Add Skills</a>-->
+    </div>
+
+    <input type="submit" value="Create Log Entry" />
+</form>
+
+
+<script></script>
+
 </body>
 </html>
