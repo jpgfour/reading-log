@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head>
-    <title>*****TESTING API CALL*****</title>
+    <title>*****BETA - Reading Log Search Results*****</title>
 </head>
 <body>
 <div id="content"></div>
@@ -21,7 +21,8 @@
         paragraph.id = item.id;
         document.body.appendChild(paragraph);
 
-        document.getElementById(item.id).innerHTML += "<br>" + item.volumeInfo.title + "   " + item.volumeInfo.authors + showThumb(item.volumeInfo.imageLinks.thumbnail);
+        document.getElementById(item.id).innerHTML += "<br>Title: " + item.volumeInfo.title + "<br>Author(s): " + item.volumeInfo.authors +  "<br>Published: " + item.volumeInfo.publishedDate +  "<br>Pages: " + item.volumeInfo.pageCount;
+        showThumb(item.volumeInfo.imageLinks.thumbnail);
 
 <!--        var chkbox = document.createElement("INPUT");-->
 <!--        chkbox.setAttribute("type", "checkbox");-->
@@ -43,7 +44,7 @@
         submitButton.addEventListener("click", function(click_id){alert("you clicked button # " + this.id);});
         document.body.appendChild(submitButton);
 
-        }
+        } <!--end JSON response iteration loop-->
     } <!--end function HandleResponse-->
 </script>
 

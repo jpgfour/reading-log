@@ -9,7 +9,7 @@
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
-    <h2>Reading Log!</h2>
+    <h2>Display Reading Log!</h2>
     <ul>
         <li th:each="log : ${logs}">
             <a th:href="@{'/view/' + ${log.id}}" th:text="${log.date}"></a>
