@@ -2,7 +2,7 @@ package org.launchcode.readinglog.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 public class Log extends AbstractEntity {
@@ -13,7 +13,7 @@ public class Log extends AbstractEntity {
     private Volume volume;
 
 
-    private Date date;
+    private LocalDate date;
     private Integer logTimeInMinutes;
     private int logPageCount;
 
@@ -26,20 +26,20 @@ public class Log extends AbstractEntity {
     //pages
 
 //all fields
-    public Log(Volume volume, Date date, Integer logTimeInMinutes, int logPageCount) {
+    public Log(Volume volume, LocalDate date, Integer logTimeInMinutes, int logPageCount) {
         this.volume = volume;
         this.date = date;
         this.logTimeInMinutes = logTimeInMinutes;
         this.logPageCount = logPageCount;
     }
 //pagecount not necessary
-    public Log(Volume volume, Date date, Integer logTimeInMinutes) {
+    public Log(Volume volume, LocalDate date, Integer logTimeInMinutes) {
         this.volume = volume;
         this.date = date;
         this.logTimeInMinutes = logTimeInMinutes;
     }
 //timelog not necessary
-    public Log(Volume volume, Date date, int logPageCount) {
+    public Log(Volume volume, LocalDate date, int logPageCount) {
         this.volume = volume;
         this.date = date;
         this.logPageCount = logPageCount;
@@ -47,7 +47,7 @@ public class Log extends AbstractEntity {
 
 
 //pagecount/time not necessary
-    public Log(Volume volume, Date date) {
+    public Log(Volume volume, LocalDate date) {
         this.volume = volume;
         this.date = date;
     }
@@ -60,11 +60,11 @@ public class Log extends AbstractEntity {
         this.volume = volume;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

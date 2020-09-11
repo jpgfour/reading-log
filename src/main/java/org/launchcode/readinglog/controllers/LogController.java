@@ -1,11 +1,13 @@
 package org.launchcode.readinglog.controllers;
 
+import org.launchcode.readinglog.models.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.time.LocalDate;
 
 @Controller
 @RequestMapping("logs")
@@ -23,7 +25,7 @@ public class LogController {
 
 
     @RequestMapping("add/{volumeId}")
-    public String log(Model model, @PathVariable String volumeId) {
+    public String displayAddLogForm(Model model, @PathVariable String volumeId) {
 //        TODO: query API based on ID, pull data points, pass data points to Add template
 
 //        getVolumeDataForLogging(volumeId);
@@ -32,8 +34,14 @@ public class LogController {
         return "add";
     }
 
+    @PostMapping("add/{volumeId}")
+    public String processAddLogForm(@ModelAttribute @Valid Log newLog, Errors errors, Model model, @RequestParam LocalDate logDate,
+                                    @RequestParam Integer minutesLogged, @RequestParam int pagesLogged) {
+        return "display";
+    }
 
-    @PostMapping("display")
+    //Get or Post?  I think just Get
+    @GetMapping ("display")
     public String log(Model model, @RequestParam int userID){
 
         model.addAttribute("userID", userID);
