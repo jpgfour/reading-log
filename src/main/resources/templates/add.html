@@ -54,7 +54,9 @@
     <div class="form-group">
         <label id="logLabel"><b>Log Your Time in Minutes And/Or Pages Read for: </b><br></label>
     </div>
+
     <div id="id01"></div>
+
     <div class="form-group">
         <label>Minutes Logged</label>
         <input type="text" name="minutesLogged" value="Enter Minutes Here">
@@ -64,6 +66,14 @@
         <label>Pages Logged</label>
         <th:block>
             <input type="text" name="pagesLogged" value="Enter Pages Here">
+        </th:block>
+        <br>
+    </div>
+
+    <div class="form-group">
+        <label>Finished?</label>
+        <th:block>
+            <input type="checkbox" name="boolFinished">
         </th:block>
         <br>
     </div>
