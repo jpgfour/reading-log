@@ -2,7 +2,6 @@ package org.launchcode.readinglog.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import java.time.LocalDate;
 
 @Entity
 public class Log extends AbstractEntity {
@@ -12,10 +11,10 @@ public class Log extends AbstractEntity {
     @ManyToOne
     private Volume volume;
 
-
-    private LocalDate date;
-    private Integer logTimeInMinutes;
-    private int logPageCount;
+    //private LocalDate date;
+    private String date;
+    private Integer minutesLogged;
+    private int pagesLogged;
 
     public Log() {}
 
@@ -26,28 +25,28 @@ public class Log extends AbstractEntity {
     //pages
 
 //all fields
-    public Log(Volume volume, LocalDate date, Integer logTimeInMinutes, int logPageCount) {
+    public Log(Volume volume, String date, Integer minutesLogged, int pagesLogged) {
         this.volume = volume;
         this.date = date;
-        this.logTimeInMinutes = logTimeInMinutes;
-        this.logPageCount = logPageCount;
+        this.minutesLogged = minutesLogged;
+        this.pagesLogged = pagesLogged;
     }
 //pagecount not necessary
-    public Log(Volume volume, LocalDate date, Integer logTimeInMinutes) {
+    public Log(Volume volume, String date, Integer minutesLogged) {
         this.volume = volume;
         this.date = date;
-        this.logTimeInMinutes = logTimeInMinutes;
+        this.minutesLogged = minutesLogged;
     }
 //timelog not necessary
-    public Log(Volume volume, LocalDate date, int logPageCount) {
+    public Log(Volume volume, String date, int pagesLogged) {
         this.volume = volume;
         this.date = date;
-        this.logPageCount = logPageCount;
+        this.pagesLogged = pagesLogged;
     }
 
 
 //pagecount/time not necessary
-    public Log(Volume volume, LocalDate date) {
+    public Log(Volume volume, String date) {
         this.volume = volume;
         this.date = date;
     }
@@ -60,28 +59,28 @@ public class Log extends AbstractEntity {
         this.volume = volume;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Integer getLogTimeInMinutes() {
-        return logTimeInMinutes;
+    public Integer getMinutesLogged() {
+        return minutesLogged;
     }
 
-    public void setLogTimeInMinutes(Integer logTimeInMinutes) {
-        this.logTimeInMinutes = logTimeInMinutes;
+    public void setMinutesLogged(Integer minutesLogged) {
+        this.minutesLogged = minutesLogged;
     }
 
-    public int getLogPageCount() {
-        return logPageCount;
+    public int getPagesLogged() {
+        return pagesLogged;
     }
 
-    public void setLogPageCount(int logPageCount) {
-        this.logPageCount = logPageCount;
+    public void setPagesLogged(int pagesLogged) {
+        this.pagesLogged = pagesLogged;
     }
 
 

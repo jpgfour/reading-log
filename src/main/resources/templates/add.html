@@ -58,14 +58,19 @@
     <div id="id01"></div>
 
     <div class="form-group">
+        <label>Log Date</label>
+        <input type="text" name="logDate" th:field="${log.date}">
+    </div>
+
+    <div class="form-group">
         <label>Minutes Logged</label>
-        <input type="text" name="minutesLogged" value="Enter Minutes Here">
+        <input type="text" name="minutesLogged" th:field="${log.minutesLogged}" value="Enter Minutes Here">
     </div>
 
     <div class="form-group">
         <label>Pages Logged</label>
         <th:block>
-            <input type="text" name="pagesLogged" value="Enter Pages Here">
+            <input type="text" name="pagesLogged" th:field="${log.pagesLogged}" value="Enter Pages Here">
         </th:block>
         <br>
     </div>

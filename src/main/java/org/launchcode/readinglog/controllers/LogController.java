@@ -1,13 +1,14 @@
 package org.launchcode.readinglog.controllers;
 
 import org.launchcode.readinglog.models.Log;
+import org.launchcode.readinglog.models.data.LogRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDate;
 
 @Controller
 @RequestMapping("logs")
@@ -22,7 +23,8 @@ public class LogController {
 //
 //    }
 
-
+    @Autowired
+    private LogRepository logRepository;
 
     @RequestMapping("add/{volumeId}")
     public String displayAddLogForm(Model model, @PathVariable String volumeId) {
@@ -31,12 +33,18 @@ public class LogController {
 //        getVolumeDataForLogging(volumeId);
 
         model.addAttribute("volumeId", volumeId);
+
+        model.addAttribute(new Log());
+
         return "add";
     }
 
     @PostMapping("add/{volumeId}")
-    public String processAddLogForm(@ModelAttribute @Valid Log newLog, Errors errors, Model model, @RequestParam LocalDate logDate,
+    public String processAddLogForm(@ModelAttribute @Valid Log newLog, Errors errors, Model model, @RequestParam String date,
                                     @RequestParam Integer minutesLogged, @RequestParam int pagesLogged) {
+
+        logRepository.save(newLog);
+
         return "display";
     }
 
