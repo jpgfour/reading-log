@@ -45,6 +45,8 @@ public class LogController {
 
         logRepository.save(newLog);
 
+        model.addAttribute("logs",logRepository.findAll());
+
         return "display";
     }
 
