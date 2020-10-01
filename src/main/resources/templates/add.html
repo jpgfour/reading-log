@@ -59,9 +59,14 @@
 
     <div id="id01"></div>
 
-    <div class="form-group" id="volumeId" hidden="true">
+    <div class="form-group" id="volumeGoogleId" hidden="true">
         <label>Log VolumeGoogleId</label>
-        <input type="text" name="logVolumeGoogleId" th:field="${log.volumeGoogleId}" hidden="true">
+        <input type="text" name="logVolumeGoogleId" th:field="${log.volumeGoogleId}">
+    </div>
+
+    <div class="form-group" id="volumeName" hidden="true">
+        <label>Log VolumeName</label>
+        <input type="text" name="logVolumeName" value="Volume Name" th:field="${log.volumeName}">
     </div>
 
     <div class="form-group">

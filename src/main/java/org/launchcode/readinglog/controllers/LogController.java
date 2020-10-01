@@ -40,9 +40,10 @@ public class LogController {
     }
 
     @PostMapping("add/{volumeId}")
-    public String processAddLogForm(@ModelAttribute @Valid Log newLog, Errors errors, Model model, @RequestParam String volumeGoogleId, @RequestParam String date,
-                                    @RequestParam Integer minutesLogged, @RequestParam int pagesLogged) {
+    public String processAddLogForm(@ModelAttribute @Valid Log newLog, Errors errors, Model model, @RequestParam String volumeGoogleId, @RequestParam String volumeName, @RequestParam String date,
+                                    @RequestParam Integer minutesLogged, @RequestParam int pagesLogged, @PathVariable String volumeId) {
 
+        newLog.setVolumeGoogleId(volumeId);
         logRepository.save(newLog);
 
         model.addAttribute("logs",logRepository.findAll());
