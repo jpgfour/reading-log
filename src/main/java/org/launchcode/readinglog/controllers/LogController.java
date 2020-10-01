@@ -32,7 +32,7 @@ public class LogController {
 
 //        getVolumeDataForLogging(volumeId);
 
-        model.addAttribute("volumeId", volumeId);
+        model.addAttribute("volumeGoogleId", volumeId);
 
         model.addAttribute(new Log());
 
@@ -40,7 +40,7 @@ public class LogController {
     }
 
     @PostMapping("add/{volumeId}")
-    public String processAddLogForm(@ModelAttribute @Valid Log newLog, Errors errors, Model model, @RequestParam String date,
+    public String processAddLogForm(@ModelAttribute @Valid Log newLog, Errors errors, Model model, @RequestParam String volumeGoogleId, @RequestParam String date,
                                     @RequestParam Integer minutesLogged, @RequestParam int pagesLogged) {
 
         logRepository.save(newLog);

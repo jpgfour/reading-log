@@ -15,7 +15,7 @@
     <h2>Reading Log</h2>
     <ul>
         <li th:each="log : ${logs}">
-            <p th:text="${log.volume} + '  ' + ${'ID: ' + log.id} + '  ' + ${'Date: ' + log.date} + '  ' + ${'Time: ' + log.minutesLogged} + '  ' + ${'Pages: ' + log.pagesLogged} "></p>
+            <p th:text="${log.volumeGoogleId} + '  ' + ${'ID: ' + log.id} + '  ' + ${'Date: ' + log.date} + '  ' + ${'Time: ' + log.minutesLogged} + '  ' + ${'Pages: ' + log.pagesLogged} "></p>
         </li>
     </ul>
 
