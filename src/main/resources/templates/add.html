@@ -37,7 +37,7 @@
         var out = "";
 <!--        out = "<br>Title: " + arr.volumeInfo.title + "<br>Author(s): " + arr.volumeInfo.authors +  "<br>Published: " + arr.volumeInfo.publishedDate +  "<br>Pages: " + arr.volumeInfo.pageCount + "<br><br>";-->
         out = "<div id=title>Title: " + arr.volumeInfo.title + "</div>" + "<div id=authors>Author(s): " + arr.volumeInfo.authors + "</div>" +  "<div id=published>Published: " + arr.volumeInfo.publishedDate + "</div>" + "<div id=pages>Pages: " + arr.volumeInfo.pageCount + "</div><br>";
-        document.getElementById("volumeGoogleId").value = selectedId;
+<!--        document.getElementById("volumeGoogleId").value = selectedId;-->
         document.getElementById("id01").innerHTML = out;
         showThumb(arr.volumeInfo.imageLinks.thumbnail);
     }
@@ -59,14 +59,15 @@
 
     <div id="id01"></div>
 
-    <div class="form-group" id="volumeGoogleId" hidden="true">
+<!--    value below does not work-->
+    <div class="form-group" hidden="true">
         <label>Log VolumeGoogleId</label>
-        <input type="text" name="logVolumeGoogleId" th:field="${log.volumeGoogleId}">
+        <input type="text" name="volumeGoogleId" id="volumeGoogleId" value='plain tex'>
     </div>
 
-    <div class="form-group" id="volumeName" hidden="true">
+    <div class="form-group">
         <label>Log VolumeName</label>
-        <input type="text" name="logVolumeName" value="Volume Name" th:field="${log.volumeName}">
+        <input type="text" name="logVolumeName" th:field="${log.volumeName}">
     </div>
 
     <div class="form-group">
@@ -76,13 +77,13 @@
 
     <div class="form-group">
         <label>Minutes Logged</label>
-        <input type="text" name="minutesLogged" th:field="${log.minutesLogged}" value="Enter Minutes Here">
+        <input type="text" name="minutesLogged" th:field="${log.minutesLogged}">
     </div>
 
     <div class="form-group">
         <label>Pages Logged</label>
         <th:block>
-            <input type="text" name="pagesLogged" th:field="${log.pagesLogged}" value="Enter Pages Here">
+            <input type="text" name="pagesLogged" th:field="${log.pagesLogged}">
         </th:block>
         <br>
     </div>

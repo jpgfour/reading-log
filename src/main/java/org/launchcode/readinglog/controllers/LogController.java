@@ -44,6 +44,9 @@ public class LogController {
                                     @RequestParam Integer minutesLogged, @RequestParam int pagesLogged, @PathVariable String volumeId) {
 
         newLog.setVolumeGoogleId(volumeId);
+
+
+
         logRepository.save(newLog);
 
         model.addAttribute("logs",logRepository.findAll());
