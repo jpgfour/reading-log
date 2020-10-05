@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head>
+<head th:replace="fragments :: head">
     <title>*****BETA - Reading Log Search Results*****</title>
 <!--    TODO: get fragments/template for the head-->
 </head>
@@ -44,10 +44,10 @@
         submitButton.innerText = "Select " + item.volumeInfo.title;
         submitButton.addEventListener("click",
             function(click_id) {
-            alert("you clicked button # " + this.id);
+<!--            alert("you clicked button # " + this.id);-->
             var url2="https://www.googleapis.com/books/v1/volumes/" + this.id;
             var url3="/logs/add/" + this.id;
-            alert("here's the selected book's data url: " + url2);
+<!--            alert("here's the selected book's data url: " + url2);-->
             window.location.assign(url3);
 
             }
@@ -60,15 +60,15 @@
 
 <script th:inline="javascript">
         var search=/*[[${searchTerm}]]*/;
-        alert("here's the search term: " + search);
+<!--        alert("here's the search term: " + search);-->
 </script>
 
 <script th:inline="javascript">
     var search=/*[[${searchTerm}]]*/;
-    alert("here's the search term: " + search);
+<!--    alert("here's the search term: " + search);-->
 
     var url="https://www.googleapis.com/books/v1/volumes?q=" + search + "&maxResults=20&callback=handleResponse"
-    alert("here's the search url: " + url);
+<!--    alert("here's the search url: " + url);-->
 
     var JSElement = document.createElement('script');
     JSElement.src = url;
