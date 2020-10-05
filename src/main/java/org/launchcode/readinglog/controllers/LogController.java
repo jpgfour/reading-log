@@ -57,17 +57,28 @@ public class LogController {
 
         JsonParser springParser = JsonParserFactory.getJsonParser();
         Map<String, Object> map = springParser.parseMap(volumeResponse);
+        System.out.println(map.values());
 
         String mapArray[] = new String[map.size()];
         System.out.println("Items found: " + mapArray.length);
 
+
         int i = 0;
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " = " + entry.getValue());
+            if(entry.getKey() == "volumeInfo") {
+                System.out.println("found volumeInfo key");
+                Object whatAmI = entry.getClass();
+                System.out.println(whatAmI.toString());
+                String volumeInfo = entry.toString();
+                System.out.println(volumeInfo);
+
+            }
             i++;
         }
 
         //end code block get google books response
+
 
         newLog.setVolumeGoogleId(volumeId);
 
