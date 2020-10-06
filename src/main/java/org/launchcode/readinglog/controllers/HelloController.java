@@ -14,9 +14,6 @@ public class HelloController {
 
     @Autowired
     AuthenticationController authenticationController;
-//    HttpServletRequest request;
-//    HttpSession session = request.getSession();
-//    User user = authenticationController.getUserFromSession(session);
 
     @RequestMapping(value = "")
     @ResponseBody
@@ -34,13 +31,5 @@ public class HelloController {
     public String goodbye() {
         return "Goodbye.  Come back soon.";
     }
-
-    //demo purposes
-    @RequestMapping(value = "harry")
-    public String harry() { return "harryPotterExample"; }
-
-    //demo purposes
-    @RequestMapping(value = "mbs")
-    public String mbs() { return "searchExample"; }
 
 }

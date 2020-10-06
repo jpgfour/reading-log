@@ -23,15 +23,6 @@ import java.util.Map;
 @RequestMapping("logs")
 public class LogController {
 
-//    private void getVolumeDataForLogging(String volumeId) {
-//
-//        final String uri = "https://www.googleapis.com/books/v1/volumes/" + volumeId;
-//        RestTemplate restTemplate = new RestTemplate();
-//        Volume result = restTemplate.getForObject(uri,Volume.class);
-//        System.out.println(result);
-//
-//    }
-
     @Autowired
     private LogRepository logRepository;
 
@@ -58,12 +49,7 @@ public class LogController {
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " = " + entry.getValue());
             if(entry.getKey() == "volumeInfo") {
-//                System.out.println("found volumeInfo key");
-//                Object whatAmI = entry.getClass();
-//                System.out.println(whatAmI.toString());
                 String volumeInfo = entry.toString();
-//                System.out.println(volumeInfo);
-
                 Integer startOfTitleIndex = volumeInfo.indexOf("title=") + 6;
                 Integer endOfTitleIndex;
                 if(volumeInfo.contains("subtitle")) {
@@ -90,8 +76,6 @@ public class LogController {
     public String displayAddLogForm(Model model, @PathVariable String volumeId) {
 //        TODO: query API based on ID, pull data points, pass data points to Add template
 
-//        getVolumeDataForLogging(volumeId);
-
         //model.addAttribute("volumeGoogleId", volumeId);
 
         model.addAttribute(new Log());
@@ -103,7 +87,7 @@ public class LogController {
     public String processAddLogForm(@ModelAttribute @Valid Log newLog, Errors errors, Model model, @RequestParam String date,
                                     @RequestParam Integer minutesLogged, @RequestParam int pagesLogged, @PathVariable String volumeId) throws IOException {
 
-        //begin code block get google books response using volumeId from Path
+        //begin code block get google books response using volumeId from Path - add more functions to expand data capture
         String volumeName = getVolumeNameAsString(volumeId);
         //end code block get google books response
 
@@ -118,7 +102,6 @@ public class LogController {
         return "display";
     }
 
-    //Get or Post?  I think just Get
     @GetMapping ("display")
     public String log(Model model){
 
