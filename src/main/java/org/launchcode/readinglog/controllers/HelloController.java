@@ -22,15 +22,11 @@ public class HelloController {
     @ResponseBody
     public String index() {
 
-        //System.out.println(user.getUsername());
         HttpSession currentSession = (HttpSession) RequestContextHolder.currentRequestAttributes().getSessionMutex();
-        //String sessionID = RequestContextHolder.currentRequestAttributes().getSessionId();
         final User currentUser = authenticationController.getUserFromSession(currentSession);
-
 
         return "Hello  <b>" + currentUser.getUsername() + "!</b>  Welcome to the plaintext reading log.  More features coming soon."
                 + "<br><br>" + "<a href=/search>Search for a book</a>" ;
-        //return "Hello" + " World" + ".  Welcome to the slightly-spiffier-than-plaintext reading log.  More features coming soon.";
     }
 
     @RequestMapping(value = "goodbye")

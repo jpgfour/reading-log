@@ -15,6 +15,8 @@ public class Log extends AbstractEntity {
     //remove volumeId/volumeName as String when fully implement volumes as objects
     private String volumeGoogleId;
     private String volumeName;
+    //maybe remove userName as String when fully implement user_id in log table and displaying results from merging user/Log tables
+    private String userName;
     //private LocalDate date;
     private String date;
     private Integer minutesLogged;
@@ -29,26 +31,29 @@ public class Log extends AbstractEntity {
     //pages
 
 //all fields
-    public Log(Volume volume, String volumeGoogleId, String volumeName, String date, Integer minutesLogged, int pagesLogged) {
+    public Log(Volume volume, String volumeGoogleId, String volumeName, String userName, String date, Integer minutesLogged, int pagesLogged) {
         this.volumeGoogleId = volumeGoogleId;
         this.volumeName = volumeName;
+        this.userName = userName;
         this.volume = volume;
         this.date = date;
         this.minutesLogged = minutesLogged;
         this.pagesLogged = pagesLogged;
     }
 //pagecount not necessary
-    public Log(Volume volume, String volumeGoogleId, String volumeName, String date, Integer minutesLogged) {
+    public Log(Volume volume, String volumeGoogleId, String volumeName, String userName, String date, Integer minutesLogged) {
         this.volumeGoogleId = volumeGoogleId;
         this.volumeName = volumeName;
+        this.userName = userName;
         this.volume = volume;
         this.date = date;
         this.minutesLogged = minutesLogged;
     }
 //timelog not necessary
-    public Log(Volume volume, String volumeGoogleId, String volumeName, String date, int pagesLogged) {
+    public Log(Volume volume, String volumeGoogleId, String volumeName, String userName, String date, int pagesLogged) {
         this.volumeGoogleId = volumeGoogleId;
         this.volumeName = volumeName;
+        this.userName = userName;
         this.volume = volume;
         this.date = date;
         this.pagesLogged = pagesLogged;
@@ -56,9 +61,10 @@ public class Log extends AbstractEntity {
 
 
 //pagecount/time not necessary
-    public Log(Volume volume, String volumeGoogleId, String volumeName, String date) {
+    public Log(Volume volume, String volumeGoogleId, String volumeName, String userName, String date) {
         this.volumeGoogleId = volumeGoogleId;
         this.volumeName = volumeName;
+        this.userName = userName;
         this.volume = volume;
         this.date = date;
     }
@@ -111,6 +117,11 @@ public class Log extends AbstractEntity {
         this.pagesLogged = pagesLogged;
     }
 
+    public String getUserName() {
+        return userName;
+    }
 
-
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }

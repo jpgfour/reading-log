@@ -5,7 +5,11 @@
 <!--    TODO: get fragments/template for the head-->
 </head>
 <body>
+
+<div th:replace="fragments :: page-header"></div>
+
 <div id="content"></div>
+
 <script>
     function showThumb(src) {
         var img = document.createElement("img");
@@ -14,6 +18,11 @@
     }
 
       function handleResponse(response) {
+
+      var paddingParagraph = document.createElement("P");
+      paddingParagraph.style.padding = "20px";
+      document.body.appendChild(paddingParagraph);
+
       for (var i = 0; i < response.items.length; i++) {
         var item = response.items[i];
         // in production code, item.text should have the HTML entities escaped.

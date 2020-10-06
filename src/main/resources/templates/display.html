@@ -1,21 +1,32 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: head">
-    <meta charset="UTF-8"/>
-    <title>*****BETA - Reading Log Display*****</title>
-</head>
+<head th:replace="fragments :: head"></head>
 <body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div style="padding:20px"><p></p></div>
 
 <!--TODO: emulate Jobs list.html and/or list-jobs.html-->
 <!--TODO: add "log added!" as conditional/invisible div to show up if user came from processing the add form-->
 
-<h1>You've successfully reached the logs/display screen!</h1>
+<h1>*****BETA - Reading Log Display*****</h1>
+<h2>You've successfully reached the logs/display screen!</h2>
 <h2>UNDER CONSTRUCTION</h2>
 
 <div class="container body-content">
     <h2>Reading Log</h2>
     <ul>
         <li th:each="log : ${logs}">
-            <p th:text="${log.volumeGoogleId} + '  ' + ${log.volumeName} + '  ' + ${'ID: ' + log.id} + '  ' + ${'Date: ' + log.date} + '  ' + ${'Time: ' + log.minutesLogged} + '  ' + ${'Pages: ' + log.pagesLogged} "></p>
+<!--            <p th:text="${'Name: ' + log.volumeName} + '     ' + ${'Date: ' + log.date} + '     ' + ${'Time: ' + log.minutesLogged} + '     ' + ${'Pages: ' + log.pagesLogged} "></p>-->
+            <table>
+                <tr>
+                    <td th:text="${'User Name: ' + log.userName}"></td>
+                    <td th:text="${'Book Name: ' + log.volumeName}"></td>
+                    <td th:text="${'Date: ' + log.date}"></td>
+                    <td th:text="${'Time: ' + log.minutesLogged}"></td>
+                    <td th:text="${'Pages: ' + log.pagesLogged}"></td>
+                </tr>
+            </table>
         </li>
     </ul>
 

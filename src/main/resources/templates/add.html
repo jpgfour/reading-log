@@ -1,10 +1,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <!--    TODO: get fragments/template for the head-->
-    <meta charset="UTF-8"/>
-    <title>Add Reading Log Entry</title>
+<head th:replace="fragments :: head"></head>
 
-    <script th:inline="javascript">
+<script th:inline="javascript">
     function showThumb(src) {
         var img = document.createElement("img");
         var brk = document.createElement("BR");
@@ -15,17 +12,17 @@
     }
 
     var selectedId=/*[[${volumeId}]]*/;
-    alert("here's your selected book's ID: " + selectedId);
+<!--    alert("here's your selected book's ID: " + selectedId);-->
 
     var selectedURL="https://www.googleapis.com/books/v1/volumes/" + selectedId;
-    alert("here's your selected book's url: " + selectedURL);
+<!--    alert("here's your selected book's url: " + selectedURL);-->
 
     var xmlhttp = new XMLHttpRequest();
     var url = selectedURL;
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            alert("JSON is starting");
+<!--            alert("JSON is starting");-->
             var myArr = JSON.parse(this.responseText);
             myFunction(myArr);
         }
@@ -43,9 +40,14 @@
     }
 
     </script>
-</head>
 
 <body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div style="padding:20px"><p></p></div>
+
+<div id="content"></div>
 
 <!--TODO: emulate Jobs add.html-->
 <h1>You've successfully reached the logs/add screen!</h1>
@@ -58,17 +60,6 @@
     </div>
 
     <div id="id01"></div>
-
-<!--    value below does not work-->
-    <div class="form-group" hidden="true">
-        <label>Log VolumeGoogleId</label>
-        <input type="text" name="volumeGoogleId" id="volumeGoogleId" value='plain tex'>
-    </div>
-
-    <div class="form-group">
-        <label>Log VolumeName</label>
-        <input type="text" name="logVolumeName" th:field="${log.volumeName}">
-    </div>
 
     <div class="form-group">
         <label>Log Date</label>
