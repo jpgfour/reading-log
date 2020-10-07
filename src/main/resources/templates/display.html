@@ -17,11 +17,11 @@
     <h2>Reading Log</h2>
     <ul>
         <li th:each="log : ${logs}">
-<!--            <p th:text="${'Name: ' + log.volumeName} + '     ' + ${'Date: ' + log.date} + '     ' + ${'Time: ' + log.minutesLogged} + '     ' + ${'Pages: ' + log.pagesLogged} "></p>-->
             <table>
                 <tr>
                     <td th:text="${'User Name: ' + log.userName}"></td>
-                    <td th:text="${'Book Name: ' + log.volumeName}" th:href="@{https://www.googleapis.com/books/v1/volumes/${log.volumeName}}"></td>
+                    <td th:text="${'Book Name: ' + log.volumeName}"></td>
+                    <a th:href="@{https://www.googleapis.com/books/v1/volumes/${log.volumeGoogleId}}"></a>
                     <td th:text="${'Date: ' + log.date}"></td>
                     <td th:text="${'Time: ' + log.minutesLogged}"></td>
                     <td th:text="${'Pages: ' + log.pagesLogged}"></td>
