@@ -76,7 +76,7 @@
     var search=/*[[${searchTerm}]]*/;
 <!--    alert("here's the search term: " + search);-->
 
-    var url="https://www.googleapis.com/books/v1/volumes?q=" + search + "&maxResults=20&callback=handleResponse"
+    var url="https://www.googleapis.com/books/v1/volumes?q=" + search + "&fields=items(id,volumeInfo(title,authors,publishedDate,pageCount,imageLinks/thumbnail))&maxResults=30&callback=handleResponse"
 <!--    alert("here's the search url: " + url);-->
 
     var JSElement = document.createElement('script');
