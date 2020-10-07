@@ -21,7 +21,7 @@
             <table>
                 <tr>
                     <td th:text="${'User Name: ' + log.userName}"></td>
-                    <td th:text="${'Book Name: ' + log.volumeName}"></td>
+                    <td th:text="${'Book Name: ' + log.volumeName}" th:href="@{https://www.googleapis.com/books/v1/volumes/${log.volumeName}}"></td>
                     <td th:text="${'Date: ' + log.date}"></td>
                     <td th:text="${'Time: ' + log.minutesLogged}"></td>
                     <td th:text="${'Pages: ' + log.pagesLogged}"></td>

@@ -12,7 +12,7 @@ public class Log extends AbstractEntity {
     @ManyToOne
     private Volume volume;
 
-    //remove volumeId/volumeName as String when fully implement volumes as objects
+    //remove volumeGoogleId/volumeName as String when fully implement volumes as objects
     private String volumeGoogleId;
     private String volumeName;
     //maybe remove userName as String when fully implement user_id in log table and displaying results from merging user/Log tables

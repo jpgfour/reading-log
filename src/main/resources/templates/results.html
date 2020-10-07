@@ -38,7 +38,7 @@
                     showThumb(item.volumeInfo.imageLinks.thumbnail);
             }
         catch(err) {
-                    showThumb('https://photos.app.goo.gl/oFMZ1G9Riq7egXYv8');
+                    showThumb('https://upload.wikimedia.org/wikipedia/commons/9/9b/No_cover.JPG');
                     }
 
 <!--        var chkbox = document.createElement("INPUT");-->
@@ -46,14 +46,14 @@
 <!--        chkbox.name = "chk" + item.id;-->
 <!--        document.body.appendChild(chkbox);-->
 
-        var radio = document.createElement("INPUT");
-        radio.setAttribute("type", "radio");
-        radio.name = "volumeSelect";
-        radio.id = "radio" + item.id
-        radio.value = "radio" + item.id;
-<!--        default to first radio button always being checked-->
-        if (i==0) {radio.checked = true;}
-        document.body.appendChild(radio);
+<!--        var radio = document.createElement("INPUT");-->
+<!--        radio.setAttribute("type", "radio");-->
+<!--        radio.name = "volumeSelect";-->
+<!--        radio.id = "radio" + item.id-->
+<!--        radio.value = "radio" + item.id;-->
+<!--&lt;!&ndash;        default to first radio button always being checked&ndash;&gt;-->
+<!--        if (i==0) {radio.checked = true;}-->
+<!--        document.body.appendChild(radio);-->
 
         var submitButton = document.createElement("BUTTON");
         submitButton.id = item.id;
@@ -83,7 +83,7 @@
     var search=/*[[${searchTerm}]]*/;
 <!--    alert("here's the search term: " + search);-->
 
-    var url="https://www.googleapis.com/books/v1/volumes?q=" + search + "&maxResults=20&callback=handleResponse"
+    var url="https://www.googleapis.com/books/v1/volumes?q=" + search + "&maxResults=30&callback=handleResponse"
 <!--    alert("here's the search url: " + url);-->
 
     var JSElement = document.createElement('script');
