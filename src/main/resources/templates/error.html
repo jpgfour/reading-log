@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+    <h1 style="color:red;">Uh oh...An error sent you here!</h1>
+    <h2>Please try your search again...</h2>
+    <h2>When you enter your pages or minutes for your log entry, please make sure to use <b><i>whole numbers</i></b></h2>
+
+    <form th:action="@{/search/results}" method = "post">
+        <h2>Search for the book you'd like to log <i>(protip: full titles work best):</i></h2>
+
+        <p>
+            <span th:each="column : ${columns}">
+                <input
+                        type="radio"
+                        name="searchType"
+                        th:id="${column.key}"
+                        th:value="${column.key}"
+                        th:checked="${column.key == 'all'}"/>
+                <label th:for="${column.key}" th:text="${column.value}"></label>
+            </span>
+
+        </p>
+
+        <p>
+            <label for="searchTerm">Try the full title, and/or the author:</label>
+            <input type="text" name="searchTerm" id="searchTerm"/>
+        </p>
+
+        <input type="submit" value="Search" />
+    </form>
+
+    <hr />
+
+
+</div>
+
+</body>
+</html>

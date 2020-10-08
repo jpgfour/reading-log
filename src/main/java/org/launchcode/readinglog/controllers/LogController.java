@@ -114,5 +114,6 @@ public class LogController {
 
         return "display";
     }
+
 }
 
