@@ -74,9 +74,7 @@ public class LogController {
 
     @RequestMapping("add/{volumeId}")
     public String displayAddLogForm(Model model, @PathVariable String volumeId) {
-//        TODO: query API based on ID, pull data points, pass data points to Add template
-
-        //model.addAttribute("volumeGoogleId", volumeId);
+//        TODO: query API based on ID, pull data points, pass data points to Add template )instead of with embedded JS
 
         model.addAttribute(new Log());
 
@@ -88,8 +86,6 @@ public class LogController {
                                     @RequestParam Integer minutesLogged, @RequestParam int pagesLogged, @PathVariable String volumeId) throws IOException {
 
         if(errors.hasErrors()) {
-            model.addAttribute(new Log());
-            model.addAttribute("errorMsg", "Something's fishy with what you tried to enter.  Please try again.");
             return "add";
         }
 

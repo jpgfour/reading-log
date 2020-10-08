@@ -53,8 +53,6 @@
 <h2>You've successfully reached the logs/add screen!</h2>
 <h2>UNDER CONSTRUCTION</h2>
 
-<p th:text="${errorMsg}" style="color:red;"></p>
-
 <form method="post" style="max-width:600px;">
     <div class="form-group">
         <label id="logLabel"><b>Log Your Time in Minutes And/Or Pages Read for: </b><br></label>
@@ -63,30 +61,39 @@
     <div id="id01"></div>
 
     <div class="form-group">
-        <label>Log Date</label>
+        <label>Log Date
         <input type="text" name="logDate" th:field="${log.date}">
+        </label>
+        <p class="error" th:errors="${log.date}"></p>
     </div>
 
     <div class="form-group">
-        <label>Minutes Logged</label>
-        <input type="text" name="minutesLogged" th:field="${log.minutesLogged}">
+        <label>Minutes Logged
+            <th:block>
+            <input type="text" name="minutesLogged" th:field="${log.minutesLogged}">
+            <p class="error" th:errors="${log.minutesLogged}"></p>
+            </th:block>
+        </label>
     </div>
 
     <div class="form-group">
-        <label>Pages Logged</label>
+        <label>Pages Logged
         <th:block>
             <input type="text" name="pagesLogged" th:field="${log.pagesLogged}">
+            <p class="error" th:errors="${log.pagesLogged}"></p>
         </th:block>
+        </label>
         <br>
     </div>
 
-    <div class="form-group">
-        <label>Finished?</label>
-        <th:block>
-            <input type="checkbox" name="boolFinished">
-        </th:block>
-        <br>
-    </div>
+<!--TODO: implement 'finished' value & logic-->
+<!--    <div class="form-group">-->
+<!--        <label>Finished?</label>-->
+<!--        <th:block>-->
+<!--            <input type="checkbox" name="boolFinished">-->
+<!--        </th:block>-->
+<!--        <br>-->
+<!--    </div>-->
 
     <input type="submit" value="Create Log Entry" />
 </form>

@@ -20,9 +20,9 @@ public class Log extends AbstractEntity {
     private String userName;
     //private LocalDate date;
     private String date;
-    @Min(value = 0L, message = "You can't have spent negative minutes reading!")
+    @Min(value = 0, message = "You could not have spent negative minutes reading!")
     private Integer minutesLogged;
-    @Min(value = 0L, message = "You can't have read negative pages!")
+    @Min(value = 0, message = "You could not have read negative pages!")
     private int pagesLogged;
 
     public Log() {}
