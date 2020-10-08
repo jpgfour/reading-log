@@ -87,6 +87,12 @@ public class LogController {
     public String processAddLogForm(@ModelAttribute @Valid Log newLog, Errors errors, Model model, @RequestParam String date,
                                     @RequestParam Integer minutesLogged, @RequestParam int pagesLogged, @PathVariable String volumeId) throws IOException {
 
+        if(errors.hasErrors()) {
+            model.addAttribute(new Log());
+            model.addAttribute("errorMsg", "Something's fishy with what you tried to enter.  Please try again.");
+            return "add";
+        }
+
         //begin code block get google books response using volumeId from Path - add more functions to expand data capture
         String volumeName = getVolumeNameAsString(volumeId);
         //end code block get google books response

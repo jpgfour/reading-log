@@ -2,6 +2,7 @@ package org.launchcode.readinglog.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
 
 @Entity
 public class Log extends AbstractEntity {
@@ -19,7 +20,9 @@ public class Log extends AbstractEntity {
     private String userName;
     //private LocalDate date;
     private String date;
+    @Min(value = 0L, message = "You can't have spent negative minutes reading!")
     private Integer minutesLogged;
+    @Min(value = 0L, message = "You can't have read negative pages!")
     private int pagesLogged;
 
     public Log() {}
