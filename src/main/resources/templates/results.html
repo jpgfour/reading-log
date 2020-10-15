@@ -11,10 +11,16 @@
 <div id="content"></div>
 
 <script>
-    function showThumb(src) {
+    function showThumb(src, counter, paragraph) {
         var img = document.createElement("img");
         img.src = src;
-        document.body.appendChild(img);
+        img.style.display = "block";
+        img.style.marginLeft = "auto";
+        img.style.marginRight = "auto";
+        img.style.width = "auto";
+        img.style.backgroundColor = "lightgreen";
+        if(counter % 2 == 0) {img.style.backgroundColor = "lightblue";}
+        paragraph.appendChild(img);
     }
 
       function handleResponse(response) {
@@ -25,6 +31,11 @@
 
       for (var i = 0; i < response.items.length; i++) {
 
+<!--        var volumeBorderLine = document.createElement("P");-->
+<!--        volumeBorderLine.style.padding = "7px 7px 7px 7px";-->
+<!--        volumeBorderLine.style.backgroundColor= "navy";-->
+<!--        document.body.appendChild(volumeBorderLine);-->
+
         var item = response.items[i];
         // in production code, item.text should have the HTML entities escaped.
 
@@ -34,11 +45,14 @@
 
         document.getElementById(item.id).innerHTML += "<br>Title: " + item.volumeInfo.title + "<br>Author(s): " + item.volumeInfo.authors +  "<br>Published: " + item.volumeInfo.publishedDate +  "<br>Pages: " + item.volumeInfo.pageCount;
 
+        document.getElementById(item.id).style.backgroundColor = "lightgreen";
+        if(i % 2 == 0) {document.getElementById(item.id).style.backgroundColor = "lightblue";}
+
         try {
-                    showThumb(item.volumeInfo.imageLinks.thumbnail);
+                    showThumb(item.volumeInfo.imageLinks.thumbnail, i, paragraph);
             }
         catch(err) {
-                    showThumb('https://upload.wikimedia.org/wikipedia/commons/9/9b/No_cover.JPG');
+                    showThumb('https://upload.wikimedia.org/wikipedia/commons/9/9b/No_cover.JPG', i, paragraph);
                     }
 
 <!--        var chkbox = document.createElement("INPUT");-->
@@ -58,6 +72,9 @@
         var submitButton = document.createElement("BUTTON");
         submitButton.id = item.id;
         submitButton.innerText = "Select " + item.volumeInfo.title;
+        submitButton.style.display = "block";
+        submitButton.style.marginLeft = "auto";
+        submitButton.style.marginRight = "auto";
         submitButton.addEventListener("click",
             function(click_id) {
 <!--            alert("you clicked button # " + this.id);-->
@@ -68,7 +85,9 @@
 
             }
             );
-        document.body.appendChild(submitButton);
+        paragraph.appendChild(submitButton);
+
+
 
         } <!--end JSON response iteration loop-->
     } <!--end function HandleResponse-->
