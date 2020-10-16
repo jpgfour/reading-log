@@ -9,7 +9,7 @@
 <!--TODO: emulate Jobs list.html and/or list-jobs.html-->
 <!--TODO: add "log added!" as conditional/invisible div to show up if user came from processing the add form-->
 
-<h1>*****BETA - Reading Log Display*****</h1>
+<h2>*****BETA - Reading Log Display*****</h2>
 <h2>You've successfully reached the logs/display screen!</h2>
 <h2>UNDER CONSTRUCTION</h2>
 
@@ -21,7 +21,7 @@
                 <tr>
                     <td th:text="${'User Name: ' + log.userName}"></td>
                     <td th:text="${'Book Name: ' + log.volumeName}"></td>
-                    <a th:href="@{https://www.googleapis.com/books/v1/volumes/${log.volumeGoogleId}}"></a>
+<!--                    <td><a th:href="@{https://www.googleapis.com/books/v1/volumes/${log.volumeGoogleId}}"></a></td>-->
                     <td th:text="${'Date: ' + log.date}"></td>
                     <td th:text="${'Time: ' + log.minutesLogged}"></td>
                     <td th:text="${'Pages: ' + log.pagesLogged}"></td>

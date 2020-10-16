@@ -43,7 +43,7 @@
         paragraph.id = item.id;
         document.body.appendChild(paragraph);
 
-        document.getElementById(item.id).innerHTML += "<br>Title: " + item.volumeInfo.title + "<br>Author(s): " + item.volumeInfo.authors +  "<br>Published: " + item.volumeInfo.publishedDate +  "<br>Pages: " + item.volumeInfo.pageCount;
+        document.getElementById(item.id).innerHTML += "<br>Title: " + item.volumeInfo.title + "<br>Author(s): " + item.volumeInfo.authors +  "<br>Published: " + item.volumeInfo.publishedDate +  "<br>Pages: " + item.volumeInfo.pageCount + "<br>Description: " + item.volumeInfo.description;
 
         document.getElementById(item.id).style.backgroundColor = "lightgreen";
         if(i % 2 == 0) {document.getElementById(item.id).style.backgroundColor = "lightblue";}
